@@ -4,11 +4,10 @@
 
 body {
     background-image: url(https://stmed.net/sites/default/files/street-fighter-v-hd-wallpapers-33706-2825150.jpg);
-    
 }
 
 #title {
-    background: rgba(74, 170, 165, 0.7); 
+    background: rgba(74, 170, 165, 0.7);
     padding: 20px;
     margin-bottom: 50px;
     text-align: center;
@@ -36,23 +35,16 @@ body {
 }
 
 .column2 {
-    
     margin-left: 10%;
     float: left;
     width: 20%;
     padding: 50px;
-    
 }
 
-
-
 .container {
-    background: rgba(74, 170, 165, 0.7); 
+    background: rgba(74, 170, 165, 0.7);
     height: 120px;
     text-align: center;
     padding: 10px;
     font-size: 25px;
-
 }
-
-
