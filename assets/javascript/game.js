@@ -15,7 +15,7 @@ let bison = randomButtonNumber();
 // reset function to reset to defaults after win/loss
 function reset() {
     goalNumber = randomNumber();
-    randomNumberHTML.innerText = "Goal Number: " + goalNumber;
+    randomNumberHTML.innerText = "GoalNumber: " + goalNumber;
     userScore = 0;
     winsDisplay.innerText = "Wins: " + wins;
     lossesDisplay.innerText = "Losses: " + losses;
@@ -67,7 +67,7 @@ function totalScore(clicked) {
 
         userScore += ken;
         console.log(userScore);
-        userScoreDisplay.textContent = "Total: " + userScore;
+        userScoreDisplay.textContent = userScore;
         checkWin();
 
 
@@ -76,13 +76,14 @@ function totalScore(clicked) {
 
         userScore += akuma;
         console.log(userScore);
-        userScoreDisplay.textContent = "Total: " + userScore;
+        userScoreDisplay.textContent = userScore;
+        checkWin();
     }
     else if (clicked === "chunLi") {
 
         userScore += chunLi;
         console.log(userScore);
-        userScoreDisplay.textContent = "Total: " + userScore;
+        userScoreDisplay.textContent = userScore;
         checkWin();
 
     }
@@ -90,7 +91,7 @@ function totalScore(clicked) {
 
         userScore += bison;
         console.log(userScore);
-        userScoreDisplay.textContent = "Total: " + userScore;
+        userScoreDisplay.textContent = userScore;
         checkWin();
     }
 
