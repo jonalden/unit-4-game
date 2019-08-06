@@ -3,45 +3,130 @@
 let wins = 0;
 let losses = 0;
 let goalNumber = randomNumber();
+let userScore = 0;
+let clicked;
 
-//assign each button a different random number, 1 - 12
-const akuma = document.getElementById("akuma");
-const ken = document.getElementById("ken");
-const chunLi = document.getElementById("chun-li");
-const bison = document.getElementById("bison");
+// assign random mumber to each character input 
+let ken = randomButtonNumber();
+let akuma = randomButtonNumber();
+let chunLi = randomButtonNumber();
+let bison = randomButtonNumber();
 
+// reset function to reset to defaults after win/loss
+function reset() {
+    goalNumber = randomNumber();
+    randomNumberHTML.innerText = goalNumber;
+    userScore = 0;
+    winsDisplay.innerText = "Wins: " + wins;
+    lossesDisplay.innerText = "Losses: " + losses;
+    userScoreDisplay.innerText = userScore;
+    clicked;
+
+    ken = randomButtonNumber();
+    akuma = randomButtonNumber();
+    chunLi = randomButtonNumber();
+    bison = randomButtonNumber();
+};
+
+//grabbing the HTML element and assigning each button a click function to call that value
+let kenButton = document.getElementById("ken").addEventListener("click", function () {
+    clicked = "ken";
+    totalScore(clicked);
+});
+
+let chunLiButton = document.getElementById("chun-li").addEventListener("click", function () {
+    clicked = "chunLi";
+    totalScore(clicked);
+});
+
+let akumaButton = document.getElementById("akuma").addEventListener("click", function () {
+    clicked = "akuma";
+    totalScore(clicked);
+});
+
+let bisonButton = document.getElementById("bison").addEventListener("click", function () {
+    clicked = "bison";
+    totalScore(clicked);
+});
+
+// creating random number for each button
 function randomButtonNumber() {
-    return(Math.floor(Math.random() * 12) + 1);
-}
+    return (Math.floor(Math.random() * 12) + 1);
+};
 
-ken.setAttribute("value", randomButtonNumber());
-akuma.setAttribute("value", randomButtonNumber());
-chunLi.setAttribute("value", randomButtonNumber());
-bison.setAttribute("value", randomButtonNumber());
-
-//create an onClick event listener for each button 
-    
-//make the id=total-score display the sum of all button presses 
-
-//assign the id=random-number a random number, 19 - 120 and display it
-
-const randomNumberHTML = document.getElementById("random-number");
-
+// creating random number for goal score
 function randomNumber() {
-    return(Math.floor(Math.random() * 101) + 19);
-}
+    return (Math.floor(Math.random() * 101) + 19);
+};
 
+// adding the sum of the button presses to the userScore
+function totalScore(clicked) {
+
+
+    if (clicked === "ken") {
+
+        userScore += ken;
+        console.log(userScore);
+        userScoreDisplay.textContent = userScore;
+        checkWin();
+
+
+    }
+    else if (clicked === "akuma") {
+
+        userScore += akuma;
+        console.log(userScore);
+        userScoreDisplay.textContent = userScore;
+        checkWin();
+    }
+    else if (clicked === "chunLi") {
+
+        userScore += chunLi;
+        console.log(userScore);
+        userScoreDisplay.textContent = userScore;
+        checkWin();
+
+    }
+    else if (clicked === "bison") {
+
+        userScore += bison;
+        console.log(userScore);
+        userScoreDisplay.textContent = userScore;
+        checkWin();
+    }
+
+};
+
+//grabbing the HTML elements to display on the page
+const userScoreDisplay = document.getElementById("user-score");
+const randomNumberHTML = document.getElementById("random-number");
+const winsDisplay = document.getElementById("wins");
+const lossesDisplay = document.getElementById("losses");
 console.log(goalNumber);
 
+//assigns text to the goal number div
 randomNumberHTML.textContent = goalNumber;
 
 
-//if id=total-score equals random number, alert winner, wins++, and assign new random numbers
-   
-/*if id=total-score is higher than random number, alert loser, losses++, 
-    and assign new random numbers*/
+//setting the win / loss conditions
+function checkWin() {
 
-    
+    if (userScore === goalNumber) {
+        wins++;
+        alert("You Win!");
+        reset();
+
+    }
+    else if (userScore > goalNumber) {
+        losses++;
+        alert("You Lose");
+        reset();
+    }
+};
+
+
+
+
 
 
 
